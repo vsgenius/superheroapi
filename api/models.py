@@ -28,7 +28,8 @@ class Powerstats(models.Model):
     durability = models.PositiveIntegerField()
     power = models.PositiveIntegerField()
     combat = models.PositiveIntegerField()
-    hero_id = models.ForeignKey(Hero, on_delete=models.CASCADE)
+    hero_id = models.ForeignKey(Hero, on_delete=models.CASCADE,
+                                related_name='powerstats')
 
 
 class Appearance(models.Model):
@@ -36,7 +37,10 @@ class Appearance(models.Model):
     race = models.CharField(max_length=50,null=True)
     height = models.CharField(max_length=50,null=True)
     weight = models.CharField(max_length=50,null=True)
-    hero_id = models.ForeignKey(Hero, on_delete=models.CASCADE)
+    eyecolor = models.CharField(max_length=50,null=True)
+    haircolor = models.CharField(max_length=50,null=True)
+    hero_id = models.ForeignKey(Hero, on_delete=models.CASCADE,
+                                related_name='appearance')
 
 
 class Biography(models.Model):
@@ -47,19 +51,22 @@ class Biography(models.Model):
     firstAppearance = models.CharField(max_length=300,null=True)
     publisher = models.CharField(max_length=300,null=True)
     alignment = models.CharField(max_length=150,null=True)
-    hero_id = models.ForeignKey(Hero, on_delete=models.CASCADE)
+    hero_id = models.ForeignKey(Hero, on_delete=models.CASCADE,
+                                related_name='biography')
 
 
 class Work(models.Model):
     occupation = models.CharField(max_length=350,null=True)
     base = models.CharField(max_length=350,null=True)
-    hero_id = models.ForeignKey(Hero, on_delete=models.CASCADE)
+    hero_id = models.ForeignKey(Hero, on_delete=models.CASCADE,
+                                related_name='work')
 
 
 class Connections(models.Model):
     groupAffiliation = models.TextField(null=True)
     relatives = models.TextField(null=True)
-    hero_id = models.ForeignKey(Hero, on_delete=models.CASCADE)
+    hero_id = models.ForeignKey(Hero, on_delete=models.CASCADE,
+                                related_name='connections')
 
 
 class Images(models.Model):
@@ -67,7 +74,8 @@ class Images(models.Model):
     sm = models.URLField()
     md = models.URLField()
     lg = models.URLField()
-    hero_id = models.ForeignKey(Hero, on_delete=models.CASCADE)
+    hero_id = models.ForeignKey(Hero, on_delete=models.CASCADE,
+                                related_name='images')
 
 
 class UserManager(BaseUserManager):

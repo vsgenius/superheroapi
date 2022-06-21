@@ -6,7 +6,8 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 
 from api.models import User, Hero, Powerstats, Appearance, Biography, Work, Connections, Images
-from api.serializers import UserSerializer, HeroSerializer, SearchSerializer, PowerstatsSerializer
+from api.serializers import UserSerializer, HeroSerializer, SearchSerializer, PowerstatsSerializer, \
+    AppearanceSerializer, BiographySerializer, WorkSerializer, ConnectionsSerializer, ImagesSerializer
 
 
 class UserView(APIView):
@@ -42,6 +43,51 @@ class PowerstatsView(APIView):
             return JsonResponse({'Status': False, 'Error': 'Log in required'}, status=403)
         powerstats = Powerstats.objects.filter(hero_id_id=pk)
         serializer = PowerstatsSerializer(powerstats, many=True)
+        return Response(serializer.data)
+
+
+class AppearanceView(APIView):
+    def get(self, request, pk=None):
+        if not request.user.is_authenticated:
+            return JsonResponse({'Status': False, 'Error': 'Log in required'}, status=403)
+        appearance = Appearance.objects.filter(hero_id_id=pk)
+        serializer = AppearanceSerializer(appearance, many=True)
+        return Response(serializer.data)
+
+
+class BiographyView(APIView):
+    def get(self, request, pk=None):
+        if not request.user.is_authenticated:
+            return JsonResponse({'Status': False, 'Error': 'Log in required'}, status=403)
+        biography = Biography.objects.filter(hero_id_id=pk)
+        serializer = BiographySerializer(biography, many=True)
+        return Response(serializer.data)
+
+
+class WorkView(APIView):
+    def get(self, request, pk=None):
+        if not request.user.is_authenticated:
+            return JsonResponse({'Status': False, 'Error': 'Log in required'}, status=403)
+        work = Work.objects.filter(hero_id_id=pk)
+        serializer = WorkSerializer(work, many=True)
+        return Response(serializer.data)
+
+
+class ConnectionsView(APIView):
+    def get(self, request, pk=None):
+        if not request.user.is_authenticated:
+            return JsonResponse({'Status': False, 'Error': 'Log in required'}, status=403)
+        connections = Connections.objects.filter(hero_id_id=pk)
+        serializer = ConnectionsSerializer(connections, many=True)
+        return Response(serializer.data)
+
+
+class ImagesView(APIView):
+    def get(self, request, pk=None):
+        if not request.user.is_authenticated:
+            return JsonResponse({'Status': False, 'Error': 'Log in required'}, status=403)
+        images = Images.objects.filter(hero_id_id=pk)
+        serializer = ImagesSerializer(images, many=True)
         return Response(serializer.data)
 
 

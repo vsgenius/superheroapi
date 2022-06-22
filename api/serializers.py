@@ -6,54 +6,49 @@ from api.models import User, Hero, Powerstats, Appearance, Biography, Work, Conn
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ('last_name','first_name', 'email')
+        fields = '__all__'
 
 
 class HeroSerializer(serializers.ModelSerializer):
     class Meta:
         model = Hero
-        fields = ('id','name', 'slug')
+        fields = '__all__'
 
 
 class PowerstatsSerializer(serializers.ModelSerializer):
     class Meta:
         model = Powerstats
-        fields = ('id','intelligence','strength',
-                  'speed','durability','power','combat')
+        fields = '__all__'
 
 
 class AppearanceSerializer(serializers.ModelSerializer):
     class Meta:
         model = Appearance
-        fields = ('id','gender','race',
-                  'height','weight','eyecolor','haircolor')
+        fields = '__all__'
 
 
 class BiographySerializer(serializers.ModelSerializer):
     class Meta:
         model = Biography
-        fields = ('id','fullName','alterEgos',
-                  'aliases','placeOfBirth','firstAppearance',
-                  'publisher','alignment')
+        fields = '__all__'
 
 
 class WorkSerializer(serializers.ModelSerializer):
     class Meta:
         model = Work
-        fields = ('id','occupation','base')
+        fields = '__all__'
 
 
 class ConnectionsSerializer(serializers.ModelSerializer):
     class Meta:
         model = Connections
-        fields = ('id','groupAffiliation','relatives')
+        fields = '__all__'
 
 
 class ImagesSerializer(serializers.ModelSerializer):
     class Meta:
         model = Images
-        fields = ('id','xs','sm',
-                  'md','lg')
+        fields = '__all__'
 
 
 class SearchSerializer(serializers.ModelSerializer):

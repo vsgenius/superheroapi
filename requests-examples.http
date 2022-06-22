@@ -1,89 +1,58 @@
 # примеры API-запросов
 
-@baseUrl = http://localhost:8000/api/v1
+@baseUrl = http://localhost:8000/api
 
-# создание продукта
-POST {{baseUrl}}/partner/update/
+# обновление списка
+POST {{baseUrl}}/data/update/
 Content-Type: application/json
+Authorization: Token ca832e3b03cef70c8d3575947d46c529b394d2f3
 
 {
-  "title": "Помидор",
-  "description": "Лучшие помидоры на рынке"
+  "url": "data.json"
 }
-
 ###
-
-# получение продуктов
-GET {{baseUrl}}/products/
+# получение данных по id
+GET {{baseUrl}}/hero/1
 Content-Type: application/json
-
+Authorization: Token ca832e3b03cef70c8d3575947d46c529b394d2f3
 ###
-
-# обновление продукта
-PATCH {{baseUrl}}/products/1/
+# поиск  по Name
+GET {{baseUrl}}/search/A-Bomb
 Content-Type: application/json
-
-{
-  "description": "Самые сочные и ароматные помидорки"
-}
-
+Authorization: Token e04d284b57c9abedf7c4d7c81795d1aacd245521
 ###
-
-# удаление продукта
-DELETE {{baseUrl}}/products/1/
+# hero
+GET {{baseUrl}}/hero/1
 Content-Type: application/json
-
+Authorization: Token ca832e3b03cef70c8d3575947d46c529b394d2f3
 ###
-
-# поиск продуктов по названию и описанию
-GET {{baseUrl}}/products/?search=помидор
+# powerstats
+GET {{baseUrl}}/powerstats/1
 Content-Type: application/json
-
+Authorization: Token e04d284b57c9abedf7c4d7c81795d1aacd245521
 ###
-
-# создание склада
-POST {{baseUrl}}/stocks/
+# appearance
+GET {{baseUrl}}/appearance/1
 Content-Type: application/json
-
-{
-  "address": "мой адрес не дом и не улица, мой адрес сегодня такой: www.ленинград-спб.ru3",
-  "positions": [
-    {
-      "product": 2,
-      "quantity": 250,
-      "price": 120.50
-    },
-    {
-      "product": 3,
-      "quantity": 100,
-      "price": 180
-    }
-  ]
-}
-
+Authorization: Token e04d284b57c9abedf7c4d7c81795d1aacd245521
 ###
-
-# обновляем записи на складе
-PATCH {{baseUrl}}/stocks/4/
+# images
+GET {{baseUrl}}/images/1
 Content-Type: application/json
-
-{
-  "positions": [
-    {
-      "product": 2,
-      "quantity": 100,
-      "price": 130.80
-    },
-    {
-      "product": 3,
-      "quantity": 243,
-      "price": 145
-    }
-  ]
-}
-
+Authorization: Token e04d284b57c9abedf7c4d7c81795d1aacd245521
 ###
-
-# поиск складов, где есть определенный продукт
-GET {{baseUrl}}/stocks/?products=2
+# biography
+GET {{baseUrl}}/biography/1
 Content-Type: application/json
+Authorization: Token e04d284b57c9abedf7c4d7c81795d1aacd245521
+###
+# work
+GET {{baseUrl}}/work/1
+Content-Type: application/json
+Authorization: Token e04d284b57c9abedf7c4d7c81795d1aacd245521
+###
+# connections
+GET {{baseUrl}}/connections/1
+Content-Type: application/json
+Authorization: Token e04d284b57c9abedf7c4d7c81795d1aacd245521
+###

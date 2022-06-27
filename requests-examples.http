@@ -14,7 +14,6 @@ Authorization: Token ca832e3b03cef70c8d3575947d46c529b394d2f3
 # получение данных по id
 GET {{baseUrl}}/hero/1
 Content-Type: application/json
-Authorization: Token ca832e3b03cef70c8d3575947d46c529b394d2f3
 ###
 # поиск  по Name
 GET {{baseUrl}}/search/A-Bomb
